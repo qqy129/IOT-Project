@@ -100,19 +100,19 @@ typedef struct {
 void PYTHON_GEAR_init__(PYTHON_GEAR *data__, BOOL retain);
 // Code part
 void PYTHON_GEAR_body__(PYTHON_GEAR *data__);
-// PROGRAM HELLO
+// PROGRAM HELLOWORD
 // Data part
 typedef struct {
   // PROGRAM Interface - IN, OUT, IN_OUT variables
 
   // PROGRAM private variables - TEMP, private and located variables
-  __DECLARE_VAR(BOOL,BUTTON)
-  __DECLARE_VAR(BOOL,LAMP)
-  TOF TOF0;
+  __DECLARE_VAR(BOOL,PB1)
+  __DECLARE_VAR(BOOL,PB2)
+  __DECLARE_VAR(BOOL,LED)
 
-} HELLO;
+} HELLOWORD;
 
-void HELLO_init__(HELLO *data__, BOOL retain);
+void HELLOWORD_init__(HELLOWORD *data__, BOOL retain);
 // Code part
-void HELLO_body__(HELLO *data__);
+void HELLOWORD_body__(HELLOWORD *data__);
 #endif //__POUS_H

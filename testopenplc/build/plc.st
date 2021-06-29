@@ -92,17 +92,14 @@ FUNCTION_BLOCK python_gear
 END_FUNCTION_BLOCK
 
 
-PROGRAM hello
+PROGRAM helloword
   VAR
-    button : BOOL;
-    lamp : BOOL;
-  END_VAR
-  VAR
-    TOF0 : TOF;
+    PB1 : BOOL;
+    PB2 : BOOL;
+    LED : BOOL;
   END_VAR
 
-  TOF0(IN := NOT(button), PT := T#2000ms);
-  lamp := TOF0.Q;
+  LED := NOT(PB2) AND (LED OR PB1);
 END_PROGRAM
 
 
@@ -110,6 +107,6 @@ CONFIGURATION Config0
 
   RESOURCE Res0 ON PLC
     TASK task0(INTERVAL := T#20ms,PRIORITY := 0);
-    PROGRAM instance0 WITH task0 : hello;
+    PROGRAM instance0 WITH task0 : helloword;
   END_RESOURCE
 END_CONFIGURATION

@@ -200,26 +200,23 @@ __end:
 
 
 
-void HELLO_init__(HELLO *data__, BOOL retain) {
-  __INIT_VAR(data__->BUTTON,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->LAMP,__BOOL_LITERAL(FALSE),retain)
-  TOF_init__(&data__->TOF0,retain);
+void HELLOWORD_init__(HELLOWORD *data__, BOOL retain) {
+  __INIT_VAR(data__->PB1,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->PB2,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->LED,__BOOL_LITERAL(FALSE),retain)
 }
 
 // Code part
-void HELLO_body__(HELLO *data__) {
+void HELLOWORD_body__(HELLOWORD *data__) {
   // Initialise TEMP variables
 
-  __SET_VAR(data__->TOF0.,IN,,!(__GET_VAR(data__->BUTTON,)));
-  __SET_VAR(data__->TOF0.,PT,,__time_to_timespec(1, 2000, 0, 0, 0, 0));
-  TOF_body__(&data__->TOF0);
-  __SET_VAR(data__->,LAMP,,__GET_VAR(data__->TOF0.Q,));
+  __SET_VAR(data__->,LED,,(!(__GET_VAR(data__->PB2,)) && (__GET_VAR(data__->LED,) || __GET_VAR(data__->PB1,))));
 
   goto __end;
 
 __end:
   return;
-} // HELLO_body__() 
+} // HELLOWORD_body__() 
 
 
 

@@ -26,7 +26,7 @@ void __publish_debug (void){}
 #include <stdio.h>
 
 #ifndef TARGET_ONLINE_DEBUG_DISABLE
-#define BUFFER_SIZE 40
+#define BUFFER_SIZE 3
 
 /* Atomically accessed variable for buffer state */
 #define BUFFER_FREE 0
@@ -44,12 +44,12 @@ static unsigned int retain_offset = 0;
 /***
  * Declare programs 
  **/
-extern HELLO RES0__INSTANCE0;
+extern HELLOWORD RES0__INSTANCE0;
 
 /***
  * Declare global variables from resources and conf 
  **/
-extern       HELLO   RES0__INSTANCE0;
+extern       HELLOWORD   RES0__INSTANCE0;
 
 typedef const struct {
     void *ptr;
@@ -57,18 +57,9 @@ typedef const struct {
 } dbgvardsc_t;
 
 static dbgvardsc_t dbgvardsc[] = {
-{&(RES0__INSTANCE0.BUTTON), BOOL_ENUM},
-{&(RES0__INSTANCE0.LAMP), BOOL_ENUM},
-{&(RES0__INSTANCE0.TOF0.EN), BOOL_ENUM},
-{&(RES0__INSTANCE0.TOF0.ENO), BOOL_ENUM},
-{&(RES0__INSTANCE0.TOF0.IN), BOOL_ENUM},
-{&(RES0__INSTANCE0.TOF0.PT), TIME_ENUM},
-{&(RES0__INSTANCE0.TOF0.Q), BOOL_ENUM},
-{&(RES0__INSTANCE0.TOF0.ET), TIME_ENUM},
-{&(RES0__INSTANCE0.TOF0.STATE), SINT_ENUM},
-{&(RES0__INSTANCE0.TOF0.PREV_IN), BOOL_ENUM},
-{&(RES0__INSTANCE0.TOF0.CURRENT_TIME), TIME_ENUM},
-{&(RES0__INSTANCE0.TOF0.START_TIME), TIME_ENUM}
+{&(RES0__INSTANCE0.PB1), BOOL_ENUM},
+{&(RES0__INSTANCE0.PB2), BOOL_ENUM},
+{&(RES0__INSTANCE0.LED), BOOL_ENUM}
 };
 
 typedef void(*__for_each_variable_do_fp)(dbgvardsc_t*);
